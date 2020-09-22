@@ -9,10 +9,10 @@
 
 int print_last_digit(int n)
 {
-	int modulo = n % 10; 	
+	int modulo = n % 10;
 
 	if (modulo < 0)
-	
+
 	{
 		modulo = modulo * -1;
 	}
