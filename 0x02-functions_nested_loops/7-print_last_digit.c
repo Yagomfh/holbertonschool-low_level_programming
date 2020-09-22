@@ -9,10 +9,13 @@
 
 int print_last_digit(int n)
 {
-	if (n < 0)
+	int modulo = n % 10; 	
+
+	if (modulo < 0)
+	
 	{
-		n = n * -1;
+		modulo = modulo * -1;
 	}
-	_putchar((n % 10) + '0');
-	return (n % 10);
+	_putchar((modulo % 10) + '0');
+	return (modulo % 10);
 }
