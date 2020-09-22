@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "holberton.h"
 
-/*
+/**
 *
 * Fuction that prints alphabet in lowercase
 *
