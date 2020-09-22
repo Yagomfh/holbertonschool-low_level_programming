@@ -13,10 +13,10 @@ int _abs(int n)
 {
 	int result;
 
-	if (n > 0)
-		result = n
+	if (n >= 0)
+		result = n;
 	else
-		result = -1 * n
+		result = -1 * n;
 
 	return (result);
 }
