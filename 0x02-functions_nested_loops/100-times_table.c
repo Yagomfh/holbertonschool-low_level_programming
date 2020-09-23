@@ -2,55 +2,57 @@
 #include "holberton.h"
 
 /**
-* print_times_table - prints the n times table, starting with 0
-* @n: number of the table 
+* times_table - function that prints the 9 times table, starting with 0
 *
-* Return: the table
+* Return: the 9 times table
 */
 
 void print_times_table(int n)
 {
-	int col, row, result;
+	int i, t, result;
 
-	for (col = 0; col <= n; col++)
+	if (n < 15 && n > 0)
+	{
+	for (t = 0; t <= n; t++)
+	{
+		for (i = 0; i <= n; i++)
 		{
-			for (row = 0; row <= n; row++)
+			result = t * i;
+			if (result / 100 != 0)
+                        {
+                                if (i != 0)
+                                {
+                                        _putchar(',');
+                                        _putchar(' ');
+                                }
+				_putchar((result / 100) + '0');
+                                _putchar(((result / 10) % 10) + '0');
+                                _putchar((result % 10) + '0');
+                        }
+			else if (result / 10 != 0)
 			{
-				result = row * col;
-				if (result / 100 != 0)
+				if (i != 0)
 				{
-					if (result != 0)
-					{
-						_putchar(',');
-						_putchar(' ');
-					}
-					_putchar((result / 100) + '0');
-					_putchar((result / 10) + '0');
-					_putchar((result % 10) + '0');
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
 				}
-				else if (result / 10 != 0)
-				{
-					if (result != 0)
-					{
-						_putchar(',');
-						_putchar(' ');
-                                                _putchar(' ');
-					}
-					_putchar((result / 10) + '0');
-                                        _putchar((result % 10) + '0');
-				}
-				else
-				{
-					if (result != 0)
-                                        {
-                                                _putchar(',');
-                                                _putchar(' ');
-                                                _putchar(' ');
-						_putchar(' ');
-                                        }
-					_putchar((result % 10) + '0');
-				}
+				_putchar((result / 10) + '0');
+				_putchar((result % 10) + '0');
 			}
-			_putchar('\n');
+			else
+			{
+				if (i != 0)
+				{
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
+					_putchar(' ');
+				}
+				_putchar((result % 10) + '0');
+			}
 		}
+		_putchar('\n');
+	}
+	}
 }
