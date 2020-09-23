@@ -17,8 +17,8 @@ int main(void)
 	while (f0 < 4000000)
 	{
 		fn = f0 + f1;
-                f0 = f1;
-                f1 = fn;
+		f0 = f1;
+		f1 = fn;
 		if (f0 < 4000000 && f0 % 2 == 0)
 			result = result + f0;
 	}
