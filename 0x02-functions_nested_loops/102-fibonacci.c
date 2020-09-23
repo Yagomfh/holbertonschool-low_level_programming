@@ -8,9 +8,9 @@
 
 int main(void)
 {
-	long long int f0 = 1;
-	long long int f1 = 2;
-	long long int fn;
+	unsigned long f0 = 1;
+	unsigned long f1 = 2;
+	unsigned long fn;
 	int n;
 
 	for (n = 1; n <= 50; n++)
