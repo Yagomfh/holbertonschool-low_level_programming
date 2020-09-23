@@ -15,7 +15,7 @@ int main(void)
 
 	for (n = 1; n <= 50; n++)
 	{
-		printf("%lli", f0);
+		printf("%lu", f0);
 		fn = f0 + f1;
 		f0 = f1;
 		f1 = fn;
