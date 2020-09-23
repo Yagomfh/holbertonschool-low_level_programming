@@ -8,11 +8,12 @@
 
 int main(void)
 {
-	long long int f0 = 0;
-	long long int f1 = 1;
-	long long int fn, n;
+	long long int f0 = 1;
+	long long int f1 = 2;
+	long long int fn;
+	int n;
 
-	for (n = 2; n <= 50; n++)
+	for (n = 1; n <= 50; n++)
 	{
 		printf("%lli", f0);
 		fn = f0 + f1;
