@@ -9,18 +9,18 @@
 
 int main(void)
 {
-	unsigned long result = 0;
+	unsigned long result = 3;
 	unsigned long f0 = 1;
 	unsigned long f1 = 2;
 	unsigned long fn;
-	int n;
 
-	for (n = 1; f0 <= 4000000; n++)
+	while (f0 < 4000000)
 	{
-		result = result + f0;
 		fn = f0 + f1;
-		f0 = f1;
-		f1 = fn;
+                f0 = f1;
+                f1 = fn;
+		if (f0 < 4000000 && f0 % 2 == 0)
+			result = result + f0;
 	}
 	printf("%lu\n", result);
 	return (0);
