@@ -1,10 +1,10 @@
-#include <stdio.h>
 #include "holberton.h"
 
 /**
-* times_table - function that prints the 9 times table, starting with 0
+* print_times_table - function that prints the 9 times table, starting with 0
+* @n: int table
 *
-* Return: the 9 times table
+* Return: the n times table
 */
 
 void print_times_table(int n)
@@ -19,16 +19,16 @@ void print_times_table(int n)
 		{
 			result = t * i;
 			if (result / 100 != 0)
-                        {
-                                if (i != 0)
-                                {
-                                        _putchar(',');
-                                        _putchar(' ');
-                                }
+			{
+				if (i != 0)
+				{
+					_putchar(',');
+					_putchar(' ');
+				}
 				_putchar((result / 100) + '0');
-                                _putchar(((result / 10) % 10) + '0');
-                                _putchar((result % 10) + '0');
-                        }
+				_putchar(((result / 10) % 10) + '0');
+				_putchar((result % 10) + '0');
+			}
 			else if (result / 10 != 0)
 			{
 				if (i != 0)
