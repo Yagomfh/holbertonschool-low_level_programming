@@ -10,7 +10,7 @@
 
 void print_number(int n)
 {
-	unsigned int len, a, rem, i, bign;
+	int len, a, rem, i, bign;
 
 	a = n;
 	len = 0;
