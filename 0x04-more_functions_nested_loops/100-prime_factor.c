@@ -8,10 +8,10 @@
 
 int main(void)
 {
-	unsigned long long num, maxFactor;
+	unsigned long num, maxFactor, div;
 
 	num = 612852475143;
-	int div = 2;
+	div = 2;
 
 	while (num != 1)
 	{
@@ -23,6 +23,6 @@ int main(void)
 			num = num / div;
 		}
 	}
-	printf("%llu\n", maxFactor);
+	printf("%lu\n", maxFactor);
 	return (0);
 }
