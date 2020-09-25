@@ -10,11 +10,11 @@
 
 void print_number(int n)
 {
-	int len, a, rem, i, bign;
+	unsigned int len, a, rem, i, bign;
+
 	a = n;
 	len = 0;
 	bign = 1;
-
 	if (n < 0)
 	{
 		n = -n;
