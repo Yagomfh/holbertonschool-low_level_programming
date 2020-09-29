@@ -22,7 +22,9 @@ int _strlen(char *str)
 /**
 * _atoi - convert a string to an integer
 *
-* @s: string to convert
+* @s: string to converti
+*
+* Return: the int
 */
 
 int _atoi(char *s)
@@ -30,9 +32,9 @@ int _atoi(char *s)
 	int len = _strlen(s) - 1;
 	int i = 0;
 	int a;
-	int sign = 1;                                                            
-	int lenint = 0;                                                          
-	int result = 0;                                                          
+	int sign = 1;
+	int lenint = 0;
+	int result = 0;
 	unsigned int bign = 1;
 
 	while ((s[i] < '0') || (s[i] > '9'))
