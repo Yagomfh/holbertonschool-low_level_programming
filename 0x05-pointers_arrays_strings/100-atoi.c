@@ -2,24 +2,6 @@
 #include <stdio.h>
 
 /**
-* _strlen - the length of a string
-* @str: the string
-*
-* Return: the lenght of the string
-*/
-
-int _strlen(char *str)
-{
-	int result = 0;
-
-	while (str[result] != '\0')
-	{
-		result++;
-	}
-	return (result);
-}
-
-/**
 * _atoi - convert a string to an integer
 *
 * @s: string to converti
@@ -29,7 +11,6 @@ int _strlen(char *str)
 
 int _atoi(char *s)
 {
-	int len = _strlen(s) - 1;
 	int i = 0;
 	int a;
 	int sign = 1;
