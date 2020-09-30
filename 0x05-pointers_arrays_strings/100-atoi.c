@@ -37,6 +37,11 @@ int _atoi(char *s)
 	}
 	for (a = i - lenint; a <= i; a++)
 	{
+		if (lenint == 0)
+		{
+			result = 0;
+			break;
+		}
 		result = result + ((s[a] - 48) * bign * sign);
 		bign = bign / 10;
 	}
