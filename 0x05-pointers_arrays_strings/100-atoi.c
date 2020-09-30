@@ -16,7 +16,7 @@ int _atoi(char *s)
 	int sign = 1;
 	int lenint = 0;
 	int result = 0;
-	unsigned int bign = 1;
+	int bign = 1;
 
 	while ((s[i] < '0') || (s[i] > '9'))
 	{
@@ -37,12 +37,8 @@ int _atoi(char *s)
 	}
 	for (a = i - lenint; a <= i; a++)
 	{
-		result = result + ((s[a] - 48) * bign);
+		result = result + ((s[a] - 48) * bign * sign);
 		bign = bign / 10;
-	}
-	if (sign < 0)
-	{
-		result = -1 * result;
 	}
 	return (result);
 }
