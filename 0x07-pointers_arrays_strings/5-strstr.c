@@ -12,6 +12,7 @@
 char *_strstr(char *haystack, char *needle)
 {
 	char *a, *b;
+
 	b = needle;
 
 	if (*b == 0)
@@ -25,7 +26,7 @@ char *_strstr(char *haystack, char *needle)
 		while (1)
 		{
 			if (*b == 0)
-				return haystack;
+				return (haystack);
 			if (*a++ != *b++)
 				break;
 		}
