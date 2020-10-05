@@ -1,25 +1,6 @@
 #include "holberton.h"
 
 /**
-* _strlen - the length of a string
-* @s: the string
-*
-* Return: the lenght of the string
-*/
-
-int _strlen(char *s)
-{
-	int result = 0;
-
-	while (*s != '\0')
-	{
-		result++;
-		s++;
-	}
-	return (result);
-}
-
-/**
 * _strstr - locates a substring
 * @haystack: string to scan
 * @needle: string to find
@@ -30,28 +11,25 @@ int _strlen(char *s)
 
 char *_strstr(char *haystack, char *needle)
 {
-	char *result = 0;
-	int a = 0, i = 0;
-	int len = _strlen(needle);
+	char *a, *b;
+	b = needle;
 
-	while (haystack[i] != 0)
+	if (*b == 0)
+		return (haystack);
+
+	for ( ; *haystack != 0; haystack++)
 	{
-		while (needle[a] != 0)
+		if (*haystack != *b)
+			continue;
+		a = haystack;
+		while (1)
 		{
-			if (needle[a] == haystack[i])
-			{
-				a++;
-				break;
-			}
-			else
+			if (*b == 0)
+				return haystack;
+			if (*a++ != *b++)
 				break;
 		}
-		if (a == len)
-		{
-			result = haystack + i - a + 1;
-			break;
-		}
-		i++;
+		b = needle;
 	}
-	return (result);
+	return (haystack);
 }
