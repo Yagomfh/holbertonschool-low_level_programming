@@ -3,7 +3,7 @@
 /**
 * _strspn - gets the length of a prefix substring
 * @s: string to be scanned
-* @accept: string containing the 
+* @accept: string containing the
 * characters to match
 *
 * Return: the number of characters matching
