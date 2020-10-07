@@ -1,22 +1,17 @@
 #include "holberton.h"
 
 /**
-* _strlen - the length of a string
-* @s: the string
+* _strlen_recursion - returns the length of a string
+* @s: string to scan
 *
 * Return: the lenght of the string
 */
 
-int _strlen(char *s)
+int _strlen_recursion(char *s)
 {
-	int result = 0;
-
-	while (*s != '\0')
-	{
-		result++;
-		s++;
-	}
-	return (result);
+	if (*s != 0)
+		return (1 + _strlen_recursion(s + 1));
+	return (0);
 }
 
 /**
@@ -28,7 +23,7 @@ int _strlen(char *s)
 
 void _puts_recursion(char *s)
 {
-	unsigned int len = _strlen(s);
+	unsigned int len = _strlen_recursion(s);
 	unsigned int i = 0;
 
 	_putchar(s[i]);
