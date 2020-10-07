@@ -3,7 +3,7 @@
 /**
 * pow_test - check what is the power of b starting at a
 * @a: initial value to check
-* @y: int to find square root of
+* @b: int to find square root of
 *
 * Return: -1 if a is decimal
 */
