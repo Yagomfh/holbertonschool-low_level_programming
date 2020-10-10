@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
-* main - prints the minimum number of coins 
+* main - prints the minimum number of coins
 * to make change for an amount of money
 * @argc: argument count
 * @argv: argument values
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 			i++;
 		}
 		cents = cents - coins[i];
-		change ++;
+		change++;
 	}
 	printf("%d\n", change);
 	return (0);
