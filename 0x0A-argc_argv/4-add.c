@@ -12,14 +12,17 @@
 
 int main(int argc, char *argv[])
 {
-	int result = 0, i = 1;
+	int result = 0, i = 1, a;
 
 	while (i < argc)
 	{
-		if (atoi(argv[i]) == 0)
+		for (a = 0; argv[i][a]; a++)
 		{
-			printf("Error\n");
-			return (1);
+			if (argv[i][a] < '0' || argv[i][a] > '9')
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
 		result += atoi(argv[i]);
 		i++;
