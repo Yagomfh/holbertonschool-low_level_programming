@@ -35,11 +35,11 @@ char *_strdup(char *str)
 	if (str == NULL)
 		return (NULL);
 
-	len = _strlen(str), i;
-	ar = malloc(len * sizeof(char));
+	len = _strlen(str);
+	ar = malloc(len + 1 * sizeof(char));
 
 	if (ar == 0)
-		return ('\0');
+		return (NULL);
 	for (i = 0; i < len; i++)
 		ar[i] = str[i];
 	return (ar);
