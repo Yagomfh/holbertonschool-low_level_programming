@@ -64,5 +64,5 @@ char *argstostr(int ac, char **av)
 		a++;
 	}
 	ar[c] = '\0';
-	return(ar);
+	return (ar);
 }
