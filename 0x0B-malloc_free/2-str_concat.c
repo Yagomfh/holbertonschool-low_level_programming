@@ -12,6 +12,9 @@ int _strlen(char *s)
 {
 	int result = 0;
 
+	if (s == NULL)
+		return (0);
+
 	while (*s != '\0')
 	{
 		result++;
@@ -34,19 +37,14 @@ char *str_concat(char *s1, char *s2)
 	int len_s1 = _strlen(s1);
 	int len_s2 = _strlen(s2);
 	char *ar = malloc((len_s1 + len_s2 + 1) * sizeof(char));
+	int i;
 
-	int i, x = 0;
-
-	if (len_s1 + len_s2 == 0)
-		ar[0] = '\0';
-	if (ar == 0)
+	if (ar == NULL)
 		return (NULL);
 	for (i = 0; i < len_s1; i++)
 		ar[i] = s1[i];
-	for (i = len_s1; i < len_s1 + len_s2; i++)
-	{
-		ar[i] = s2[x];
-		x++;
-	}
+	for (i = 0; i < len_s2; i++)
+		ar[i + len_s1] = s2[i];
+	ar[len_s1 + len_s2] = '\0';
 	return (ar);
 }
