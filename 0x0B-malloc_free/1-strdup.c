@@ -36,7 +36,7 @@ char *_strdup(char *str)
 
 	if (len == 0 || ar == 0)
 		return ('\0');
-	for (i = 0; i < len; i++)
+	for (i = 0; i <= len; i++)
 		ar[i] = str[i];
 	return (ar);
 }
