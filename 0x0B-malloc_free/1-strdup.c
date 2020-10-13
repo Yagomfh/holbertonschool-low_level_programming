@@ -30,7 +30,7 @@ int _strlen(char *s)
 char *_strdup(char *str)
 {
 	char *ar;
-	int len;
+	int len, i;
 
 	if (str == NULL)
 		return (NULL);
