@@ -32,9 +32,9 @@ char *_strdup(char *str)
 	char *ar;
 	int len = _strlen(str), i;
 
-	ar = malloc(len);
+	ar = malloc(len * sizeof(char));
 
-	if (ar == '\0' || len <= 0)
+	if (len == 0 || ar == 0)
 		return ('\0');
 	for (i = 0; i < len; i++)
 		ar[i] = str[i];
