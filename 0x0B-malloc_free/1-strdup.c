@@ -30,11 +30,15 @@ int _strlen(char *s)
 char *_strdup(char *str)
 {
 	char *ar;
-	int len = _strlen(str), i;
+	int len;
 
+	if (str == NULL)
+		return (NULL);
+
+	len = _strlen(str), i;
 	ar = malloc(len * sizeof(char));
 
-	if (len == 0 || ar == 0)
+	if (ar == 0)
 		return ('\0');
 	for (i = 0; i <= len; i++)
 		ar[i] = str[i];
