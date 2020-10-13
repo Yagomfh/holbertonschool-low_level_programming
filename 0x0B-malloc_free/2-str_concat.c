@@ -33,13 +33,14 @@ char *str_concat(char *s1, char *s2)
 {
 	int len_s1 = _strlen(s1);
 	int len_s2 = _strlen(s2);
-	char *ar = malloc(len_s1 + len_s2);
+	char *ar = malloc((len_s1 + len_s2 + 1) * sizeof(char));
+
 	int i, x = 0;
 
 	if (len_s1 + len_s2 == 0)
 		ar[0] = '\0';
-	if (ar == '\0')
-		return ('\0');
+	if (ar == 0)
+		return (NULL);
 	for (i = 0; i < len_s1; i++)
 		ar[i] = s1[i];
 	for (i = len_s1; i < len_s1 + len_s2; i++)
