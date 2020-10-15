@@ -3,22 +3,26 @@
 #include <stdlib.h>
 
 /**
- * _memset - fills memory with a constant byte.
- * @s: the memory area to be filled
- * @b: the constant byte
- * @n: number of bytes to fill with char b
- * Return: a pointer to the memory area s.
- */
+* _memcpy - copies memory area
+* @dest: destination
+* @src: source
+* @n: number of bytes to copy
+*
+* Return: a pointer to dest
+*/
 
-char *_memset(char *s, char b, unsigned int n)
+char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	char *p = s;
+	unsigned int i = 0;
 
-	for (; n; n--)
-		*p++ = b;
-
-	return (s);
+	while (i < n)
+	{
+		*(dest + i) = *(src + i);
+		i++;
+	}
+	return (dest);
 }
+
 
 /**
   * _realloc - reallocates a memory block
@@ -52,7 +56,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		new = malloc(sizeof(ptr) * new_size);
 		if (new == NULL)
 			return (NULL);
-		_memset(new, 0, old_size);
+		_memcpy(new, ptr, old_size);
 		free(ptr);
 	}
 	if (new_size < old_size)
@@ -60,7 +64,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		new = malloc(sizeof(ptr) * new_size);
 		if (new == NULL)
 			return (NULL);
-		_memset(new, 0, new_size);
+		_memcpy(new, ptr, new_size);
 		free(ptr);
 	}
 	return (new);
