@@ -40,9 +40,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int i;
 	char *ar;
 
-	printf("n = %u\n", n);
-	printf("len_s1 = %u\n", len_s1);
-	printf("len_s2 = %u\n", len_s2);
 	if (n <= len_s2)
 		ar = malloc((len_s1 + n + 1) * sizeof(char));
 	if (n > len_s2)
