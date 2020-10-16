@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 	int len_d1, ret, len_d2, longest, l, c, a;
 	int **matrix;
 
-	if (argc != 2)
+	if (argc != 3 || argv[1] == NULL || argv[2] == NULL)
 	{
 		_putchar('E');
 		_putchar('r');
