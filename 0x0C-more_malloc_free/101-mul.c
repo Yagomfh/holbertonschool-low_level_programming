@@ -132,6 +132,8 @@ int main(int argc, char *argv[])
 	}
 	while (matrix[longest][a] == 0)
 		a++;
+	if (a == longest * 2 - 1)
+		_putchar('0');
 	while (a <= longest * 2 - 1)
 	{
 		_putchar(matrix[longest][a] + '0');
