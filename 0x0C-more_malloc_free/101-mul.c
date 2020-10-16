@@ -3,6 +3,23 @@
 #include <stdio.h>
 
 /**
+  * error_output - outputs error
+  *
+  * Return: error + exit
+  */
+
+int error_output(void)
+{
+	_putchar('E');
+	_putchar('r');
+	_putchar('r');
+	_putchar('o');
+	_putchar('r');
+	_putchar('\n');
+	exit(98);
+}
+
+/**
 * _strlen - the length of a string
 * @s: the string
 *
@@ -113,6 +130,8 @@ int _atoi(char *s)
 	return (res);
 }
 
+
+
 /**
   * main - multiplies two digits
   * @argc: number of inputs
@@ -127,15 +146,7 @@ int main(int argc, char *argv[])
 	int **matrix;
 
 	if (argc != 3 || argv[1] == NULL || argv[2] == NULL)
-	{
-		_putchar('E');
-		_putchar('r');
-		_putchar('r');
-		_putchar('o');
-		_putchar('r');
-		_putchar('\n');
-		exit(98);
-	}
+		error_output();
 
 	len_d1 = _strlen(argv[1]) - 1;
 	len_d2 = _strlen(argv[2]) - 1;
@@ -166,8 +177,7 @@ int main(int argc, char *argv[])
 		l = 0;
 		while (l < longest)
 		{
-			matrix[longest][c] += matrix[l][c];
-			l++;
+			matrix[longest][c] += matrix[l++][c];
 		}
 		matrix[longest][c] = matrix[longest][c];
 		c--;
@@ -186,13 +196,8 @@ int main(int argc, char *argv[])
 	if ((_atoi(argv[1]) == 0) || (_atoi(argv[2]) == 0))
 		_putchar('0');
 	else
-	{
 		while (a <= longest * 2 - 1)
-		{
-			_putchar(matrix[longest][a] + '0');
-			a++;
-		}
-	}
+			_putchar(matrix[longest][a++] + '0');
 	_putchar('\n');
 	free_grid(matrix, longest + 1);
 	return (0);
