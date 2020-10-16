@@ -63,6 +63,57 @@ int **alloc_grid(int width, int height)
 }
 
 /**
+  * free_grid - frees a 2 dimensional grid previously created
+  * @grid: grid to free
+  * @height: height of grid
+  *
+  * Return: always 0
+  */
+
+void free_grid(int **grid, int height)
+{
+	int i;
+
+	for (i = 0; i < height; i++)
+		free(grid[i]);
+	free(grid);
+}
+
+/**
+ * _atoi - Equivalent to atoi function
+ *
+ * @s : input string
+ *
+ * Return: atoi number
+ */
+
+int _atoi(char *s)
+{
+	int sign = 1;
+	int res = 0;
+	int i, len;
+
+	i = 0;
+	len = _strlen(s);
+
+	while (i < len)
+	{
+		if (res == 0)
+		{
+			if (*(s + i) == '-')
+				sign = -sign;
+		}
+
+		if (*(s + i) >= '0' && *(s + i) <= '9')
+			res = 10 * res + sign * (*(s + i) - '0');
+		else if (res != 0)
+			break;
+		i++;
+	}
+	return (res);
+}
+
+/**
   * main - multiplies two digits
   * @argc: number of inputs
   * @argv: input value
@@ -132,13 +183,17 @@ int main(int argc, char *argv[])
 	}
 	while (matrix[longest][a] == 0)
 		a++;
-	if (a == longest * 2 - 1)
+	if ((_atoi(argv[1]) == 0) || (_atoi(argv[2]) == 0))
 		_putchar('0');
-	while (a <= longest * 2 - 1)
+	else
 	{
-		_putchar(matrix[longest][a] + '0');
-		a++;
+		while (a <= longest * 2 - 1)
+		{
+			_putchar(matrix[longest][a] + '0');
+			a++;
+		}
 	}
 	_putchar('\n');
+	free_grid(matrix, longest + 1);
 	return (0);
 }
