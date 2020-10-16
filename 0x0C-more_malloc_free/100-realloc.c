@@ -18,25 +18,25 @@
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	void *new;
+	void *r;
 
-	if (new_size == old_size)
-		return (ptr);
 	if (ptr == NULL)
 	{
-		new = malloc(new_size);
-		if (new == NULL)
+		r = malloc(new_size);
+		if (r == NULL)
 			return (NULL);
-		return (new);
+		return (r);
 	}
-		if (new_size == 0 && ptr != NULL)
+	if (new_size == old_size)
+		return (ptr);
+	if (new_size == 0 && ptr != NULL)
 	{
 		free(ptr);
 		return (NULL);
 	}
-	new = malloc(sizeof(ptr) * new_size);
+	r = malloc(new_size);
 	free(ptr);
-	if (new == NULL)
+	if (r == NULL)
 		return (NULL);
-	return (new);
+	return (r);
 }
