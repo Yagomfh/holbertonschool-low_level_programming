@@ -3,28 +3,6 @@
 #include <stdlib.h>
 
 /**
-* _memcpy - copies memory area
-* @dest: destination
-* @src: source
-* @n: number of bytes to copy
-*
-* Return: a pointer to dest
-*/
-
-char *_memcpy(char *dest, char *src, unsigned int n)
-{
-	unsigned int i = 0;
-
-	while (i < n)
-	{
-		*(dest + i) = *(src + i);
-		i++;
-	}
-	return (dest);
-}
-
-
-/**
   * _realloc - reallocates a memory block
   * @ptr: pointer to the memory previously allocated
   * @old_size: size, in bytes, of the allocated space for ptr
@@ -45,27 +23,20 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (new_size == old_size)
 		return (ptr);
 	if (ptr == NULL)
+	{
 		new = malloc(new_size);
-	if (new_size == 0 && ptr != NULL)
+		if (new == NULL)
+			return (NULL);
+		return (new);
+	}
+		if (new_size == 0 && ptr != NULL)
 	{
 		free(ptr);
 		return (NULL);
 	}
-	if (new_size > old_size)
-	{
-		new = malloc(sizeof(ptr) * new_size);
-		if (new == NULL)
-			return (NULL);
-		_memcpy(new, ptr, old_size);
-		free(ptr);
-	}
-	if (new_size < old_size)
-	{
-		new = malloc(sizeof(ptr) * new_size);
-		if (new == NULL)
-			return (NULL);
-		_memcpy(new, ptr, new_size);
-		free(ptr);
-	}
+	new = malloc(sizeof(ptr) * new_size);
+	free(ptr);
+	if (new == NULL)
+		return (NULL);
 	return (new);
 }
