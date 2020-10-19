@@ -1,4 +1,4 @@
-#ifdef "1-pi.h"
-#define "1-pi.h"
+#ifdef PI_H
+#define PI_H
 #define PI 3.14159265359
 #endif
