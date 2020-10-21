@@ -2,6 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+  * main - performs simple operations
+  * @argc: # of inputs
+  * @argv: indiv inputs
+  *
+  * Return: void
+  */
+
 int main(int argc, char *argv[])
 {
 	int dig1, dig2, result;
