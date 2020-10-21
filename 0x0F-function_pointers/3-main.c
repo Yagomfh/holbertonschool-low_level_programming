@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 	calf = get_op_func(argv[2]);
-	if (calf == NULL)
+	if (calf == NULL || argv[2][1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
