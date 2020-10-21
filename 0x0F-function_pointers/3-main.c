@@ -28,7 +28,6 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(100);
 	}
-	printf("Operator: %c\n", *(argv[2]));
 	calf = get_op_func(argv[2]);
 	if (calf == NULL)
 	{
