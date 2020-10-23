@@ -3,50 +3,103 @@
 #include <stdio.h>
 
 /**
+ * char_t - print char
+ * @a: char to print
+ *
+ * Return: void
+ */
+
+void char_t(va_list a)
+{
+	int tmp = va_arg(a, int);
+
+	printf("%c", tmp);
+}
+
+/**
+ * int_t - print int
+ * @a: int to print
+ *
+ * Return: void
+ */
+
+void int_t(va_list a)
+{
+	int tmp = va_arg(a, int);
+
+	printf("%d", tmp);
+}
+
+/**
+ * float_t - print float
+ * @a: float to print
+ *
+ * Return: void
+ */
+
+void float_t(va_list a)
+{
+	double tmp = va_arg(a, double);
+
+	printf("%f", tmp);
+}
+
+/**
+ * char_pt - print string
+ * @a: string to print
+ *
+ * Return: void
+ */
+
+void char_pt(va_list a)
+{
+	char *tmp = va_arg(a, char*);
+
+	if (tmp == NULL)
+	{
+		tmp = "(nil)";
+	}
+	printf("%s", tmp);
+}
+
+/**
  * print_all - prints anything
  * @format: list of types of arguments passed to the function
  *
- * Return: void 
+ * Return: void
  */
 
 void print_all(const char * const format, ...)
 {
-	int i;
-	char *tmp;
-	char *space = "";
-
+	int i, j = 0;
+	char *space;
 	va_list valist;
+	format_t typs[] = {
+		{"c", char_t},
+		{"i", int_t},
+		{"f", float_t},
+		{"s", char_pt},
+		{NULL, NULL}
+	};
+
 	va_start(valist, format);
 
-	i = 0;
-	while (format && format[i])
+	while (format && format[j])
 	{
-		switch (format[i])
-		{
-			case 'c':
-				printf("%s%c", space, va_arg(valist, int));
-				break;
-			case 'i':
-				printf("%s%d", space, va_arg(valist, int));
-				break;
-			case 'f':
-				printf("%s%f", space, va_arg(valist, double));
-				break;
-			case 's':
-				tmp = va_arg(valist, char*);
-				if (tmp == NULL)
-				{
-					printf("(nil)");
-					break;
-				}
-				printf("%s%s", space, tmp);
-				break;
-		}
 		space = "";
-		if (format[i + 1])
+		if (format[j + 1])
 			space = ", ";
-		i++;
+		i = 0;
+		while (i < 4)
+		{
+			if (format[j] == *(typs[i].str))
+			{
+				typs[i].f(valist);
+				printf("%s", space);
+			}
+			i++;
+		}
+		j++;
 	}
 	printf("\n");
-	va_end(valist);
 }
