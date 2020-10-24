@@ -1,5 +1,6 @@
 #ifndef VARIADIC_FUNCTIONS_H
 #define VARIADIC_FUNCTIONS_H
+
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,7 +13,7 @@
  * Description: type to call
  */
 
-typedef struct format
+typedef struct types_arg
 {
 	char *str;
 	void (*f)(va_list a);
