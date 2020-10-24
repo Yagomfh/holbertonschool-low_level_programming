@@ -74,7 +74,7 @@ void print_all(const char * const format, ...)
 	va_start(valist, format);
 
 	j = 0;
-	while (format[j] && format)
+	while (format && format[j])
 	{
 		i = 0;
 		while (typs[i].str)
