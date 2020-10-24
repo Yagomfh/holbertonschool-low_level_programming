@@ -47,10 +47,6 @@ void char_pt(va_list a)
 {
 	char *tmp = va_arg(a, char*);
 
-	if (tmp == NULL)
-	{
-		tmp = "(nil)";
-	}
 	printf("%s", tmp);
 }
 
