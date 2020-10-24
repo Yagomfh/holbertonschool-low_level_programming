@@ -64,18 +64,19 @@ void char_pt(va_list a)
 void print_all(const char * const format, ...)
 {
 	char *space;
-	int i, j = 0;
+	int i, j;
 	va_list valist;
-	format_t typs[] = {
-		{"c", char_t},
+
+	format_t typs[] = {{"c", char_t},
 		{"i", int_t},
 		{"f", float_t},
 		{"s", char_pt},
-	};
+		{NULL, NULL}};
 
 	va_start(valist, format);
 
-	while (format && format[j])
+	j = 0;
+	while (format[j])
 	{
 		space = "";
 		if (format[j + 1])
@@ -93,5 +94,6 @@ void print_all(const char * const format, ...)
 		j++;
 	}
 	printf("\n");
+
 	va_end(valist);
 }
