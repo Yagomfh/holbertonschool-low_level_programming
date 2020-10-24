@@ -7,14 +7,15 @@
  * @separator: string to be printed between the strings
  * @n: number of strings passed to the function
  *
- * Return: void, nothing if separator = NUlL, (nil) if one of the string is NULL
+ * Return: void, nothing if separator = NUlL,
+ * (nil) if one of the string is NULL
  */
 
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	va_list valist;
 	unsigned int i;
 	char *tmp;
+	va_list valist;
 
 	va_start(valist, n);
 
