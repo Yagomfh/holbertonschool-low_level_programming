@@ -1,6 +1,4 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 /**
  * char_t - print char
@@ -65,16 +63,15 @@ void char_pt(va_list a)
 
 void print_all(const char * const format, ...)
 {
+	char *space;
+	int i, j = 0;
+	va_list valist;
 	format_t typs[] = {
 		{"c", char_t},
 		{"i", int_t},
 		{"f", float_t},
 		{"s", char_pt},
-		{NULL, NULL}
 	};
-	int i, j = 0;
-	char *space;
-	va_list valist;
 
 	va_start(valist, format);
 
