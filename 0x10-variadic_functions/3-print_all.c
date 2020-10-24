@@ -63,7 +63,6 @@ void char_pt(va_list a)
 
 void print_all(const char * const format, ...)
 {
-	char *space;
 	int i, j;
 	va_list valist;
 
@@ -78,19 +77,19 @@ void print_all(const char * const format, ...)
 	j = 0;
 	while (format[j])
 	{
-		space = "";
-		if (format[j + 1])
-			space = ", ";
 		i = 0;
 		while (i < 4)
 		{
 			if (format[j] == *(typs[i].str))
 			{
 				typs[i].f(valist);
-				printf("%s", space);
 			}
 			i++;
 		}
+		if (format[j + 1] != '\0' && (format[j] == 'c' ||
+					format[j] == 'i' ||
+					format[j] == 's'))
+			printf(", ");
 		j++;
 	}
 	printf("\n");
