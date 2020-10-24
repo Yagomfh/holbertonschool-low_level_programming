@@ -65,9 +65,6 @@ void char_pt(va_list a)
 
 void print_all(const char * const format, ...)
 {
-	int i, j = 0;
-	char *space;
-	va_list valist;
 	format_t typs[] = {
 		{"c", char_t},
 		{"i", int_t},
@@ -75,6 +72,9 @@ void print_all(const char * const format, ...)
 		{"s", char_pt},
 		{NULL, NULL}
 	};
+	int i, j = 0;
+	char *space;
+	va_list valist;
 
 	va_start(valist, format);
 
