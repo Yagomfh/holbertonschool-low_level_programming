@@ -63,7 +63,7 @@ void char_pt(va_list a)
 
 void print_all(const char * const format, ...)
 {
-	int i, j;
+	unsigned int i, j;
 	va_list valist;
 
 	format_t typs[] = {{"c", char_t},
@@ -78,7 +78,7 @@ void print_all(const char * const format, ...)
 	while (format[j])
 	{
 		i = 0;
-		while (i < 4)
+		while (i < 5)
 		{
 			if (format[j] == *(typs[i].str))
 			{
