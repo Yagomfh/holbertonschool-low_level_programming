@@ -45,7 +45,11 @@ void float_t(va_list a)
 
 void char_pt(va_list a)
 {
-	printf("%s", va_arg(a, char*));
+	char *tmp = va_arg(a, char*);
+
+	if (tmp == NULL)
+		tmp = "(nil)";
+	printf("%s", tmp);
 }
 
 /**
@@ -59,6 +63,7 @@ void print_all(const char * const format, ...)
 {
 	unsigned int i, j;
 	va_list valist;
+	char *sep = "";
 
 	format_t typs[] = {{"c", char_t},
 		{"i", int_t},
@@ -76,14 +81,12 @@ void print_all(const char * const format, ...)
 		{
 			if (format[j] == *(typs[i].str))
 			{
+				printf("%s", sep);
 				typs[i].f(valist);
+				sep = ", ";
 			}
 			i++;
 		}
-		if (format[j + 1] != '\0' && (format[j] == 'c' ||
-					format[j] == 'i' ||
-					format[j] == 's'))
-			printf(", ");
 		j++;
 	}
 	printf("\n");
