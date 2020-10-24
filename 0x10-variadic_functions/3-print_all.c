@@ -45,9 +45,7 @@ void float_t(va_list a)
 
 void char_pt(va_list a)
 {
-	char *tmp = va_arg(a, char*);
-
-	printf("%s", tmp);
+	printf("%s", va_arg(a, char*);
 }
 
 /**
