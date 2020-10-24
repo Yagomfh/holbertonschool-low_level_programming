@@ -11,9 +11,7 @@
 
 void char_t(va_list a)
 {
-	int tmp = va_arg(a, int);
-
-	printf("%c", tmp);
+	printf("%c", va_arg(a, int));
 }
 
 /**
@@ -25,9 +23,7 @@ void char_t(va_list a)
 
 void int_t(va_list a)
 {
-	int tmp = va_arg(a, int);
-
-	printf("%d", tmp);
+	printf("%d", va_arg(a, int));
 }
 
 /**
@@ -39,9 +35,7 @@ void int_t(va_list a)
 
 void float_t(va_list a)
 {
-	double tmp = va_arg(a, double);
-
-	printf("%f", tmp);
+	printf("%f", va_arg(a, double));
 }
 
 /**
