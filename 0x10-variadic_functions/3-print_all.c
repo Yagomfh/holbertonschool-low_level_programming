@@ -65,7 +65,7 @@ void print_all(const char * const format, ...)
 	va_list valist;
 	char *sep = "";
 
-	format_t typs[] = {{"c", char_t},
+	a_types typs[] = {{"c", char_t},
 		{"i", int_t},
 		{"f", float_t},
 		{"s", char_pt},
@@ -74,10 +74,10 @@ void print_all(const char * const format, ...)
 	va_start(valist, format);
 
 	j = 0;
-	while (format[j])
+	while (format[j] && format)
 	{
 		i = 0;
-		while (i < 5)
+		while (typs[i].str)
 		{
 			if (format[j] == *(typs[i].str))
 			{
