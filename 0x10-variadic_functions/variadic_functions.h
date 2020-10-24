@@ -2,6 +2,14 @@
 #define VARIADIC_FUNCTIONS_H
 #include <stdarg.h>
 
+/**
+ * struct format - type structure
+ * @str: str input
+ * @f: function to call
+ *
+ * Description: type to call
+ */
+
 typedef struct format
 {
 	char *str;
