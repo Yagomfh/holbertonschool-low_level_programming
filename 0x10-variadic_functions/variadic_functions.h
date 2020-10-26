@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 /**
- * struct format - type structure
+ * struct types_arg - type structure
  * @str: str input
  * @f: function to call
  *
