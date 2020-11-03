@@ -1,9 +1,9 @@
 #include "lists.h"
 
 /**
- * sum_listint - returns the sum of all the data (n)
- * @head: pointer to head node;
- * Return. the sum or 0 if list empty
+ * sum_listint - number of elements in a linked
+ * @head: linked list to parse
+ * Return: number of elements
  */
 
 int sum_listint(listint_t *head)
