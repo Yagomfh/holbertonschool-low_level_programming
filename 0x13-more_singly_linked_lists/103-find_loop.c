@@ -1,10 +1,9 @@
 #include "lists.h"
 
 /**
- * print_listint_safe - prints a listint_t linked list
+ * find_listint_loop - finds where infinite loop starts
  * @head: pointer to head node
- * Return: number of nodes in the list
- * If the function fails, exit the program with status 98
+ * Return: pointer to beginning of loop or NULL otherwise
  */
 
 listint_t *find_listint_loop(listint_t *head)
