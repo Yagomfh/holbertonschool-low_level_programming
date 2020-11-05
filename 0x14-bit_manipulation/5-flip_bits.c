@@ -11,17 +11,13 @@
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned int comparator = n ^ m;
-	unsigned int checker;
-	int index = 0;
 	int count = 0;
 
-	while (index < 64)
+	while (comparator > 0)
 	{
-		checker = 1;
-		checker = checker << index;
-		if ((comparator & checker) != 0)
+		if ((comparator & 1) != 0)
 			count++;
-		index++;
+		comparator = comparator >> 1;
 	}
-	return (count >> 1);
+	return (count);
 }
