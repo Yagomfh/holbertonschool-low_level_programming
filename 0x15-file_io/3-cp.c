@@ -65,6 +65,7 @@ int main(int ac, char **av)
 	re = read(fd1, buf, sizeof(buf));
 	if (re == -1)
 		exit98(av[1]);
+
 	while (re > 0)
 	{
 		wr = write(fd2, buf, re);
@@ -73,7 +74,6 @@ int main(int ac, char **av)
 		re = read(fd1, buf, sizeof(buf));
 		if (re == -1)
 			exit98(av[1]);
-		printf("re = %d\n", re);
 	}
 	c1 = close(fd1);
 	if (c1 == -1)
