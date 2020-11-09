@@ -37,25 +37,6 @@ void exit100(int fd)
 }
 
 /**
-* _strlen - the length of a string
-* @s: the string
-*
-* Return: the lenght of the string
-*/
-
-int _strlen(char *s)
-{
-	int result = 0;
-
-	while (*s != '\0')
-	{
-		result++;
-		s++;
-	}
-	return (result);
-}
-
-/**
  * main - copies the content of a file to another file
  * @ac: number of arguments passed
  * @av: the arguments
@@ -65,7 +46,7 @@ int _strlen(char *s)
 int main(int ac, char **av)
 {
 	int fd1, fd2, re, wr, c1, c2;
-	char *buf;
+	char buf[1024];
 
 	if (ac != 3)
 	{
@@ -76,23 +57,29 @@ int main(int ac, char **av)
 	fd1 = open(av[1], O_RDONLY);
 	if (fd1 == -1)
 		exit98(av[1]);
-	buf = malloc(sizeof(char) * 1024);
-	re = read(fd1, buf, 1024);
-	if (re == -1)
-		exit98(av[1]);
+
 	fd2 = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd2 == -1)
 		exit99(av[2]);
-	if (_strlen(buf))
-		wr = write(fd2, buf, _strlen(buf));
-	if (wr == -1)
-		exit99(av[2]);
+
+	re = read(fd1, buf, sizeof(buf));
+	if (re == -1)
+		exit98(av[1]);
+
+	while (re > 0)
+	{
+		wr = write(fd2, buf, re);
+		if (wr == -1)
+			exit99(av[2]);
+		re = read(fd1, buf, sizeof(buf));
+		if (re == -1)
+			exit98(av[1]);
+	}
 	c1 = close(fd1);
-	c2 = close(fd2);
 	if (c1 == -1)
 		exit100(c1);
+	c2 = close(fd2);
 	if (c2 == -1)
 		exit100(c2);
-	free(buf);
 	return (0);
 }
