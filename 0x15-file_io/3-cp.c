@@ -1,4 +1,41 @@
 #include "holberton.h"
+
+/**
+ * exit98 - ile_from does not exist, or can't be read
+ * @f: file name
+ * Return: void
+ */
+
+void exit98(char *f)
+{
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f);
+	exit(98);
+}
+
+/**
+ * exit99 - write to file_to fails
+ * @f: file name
+ * Return: void
+ */
+
+void exit99(char *f)
+{
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f);
+	exit(99);
+}
+
+/**
+ * exit100 - can not close a file descriptor error
+ * @fd: value of the file descriptor
+ * Return: void
+ */
+
+void exit100(int fd)
+{
+	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+	exit(100);
+}
+
 /**
 * _strlen - the length of a string
 * @s: the string
@@ -32,33 +69,30 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(STDOUT_FILENO, "Usage: cp file_from file_toi\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	buf = malloc(sizeof(char) * 1024);
+
 	fd1 = open(av[1], O_RDONLY);
+	if (fd1 == -1)
+		exit98(av[1]);
+	buf = malloc(sizeof(char) * 1024);
 	re = read(fd1, buf, 1024);
-	if (fd1 == -1 || re == -1)
-	{
-		dprintf(STDOUT_FILENO, "Can't read from file %s\n", av[1]);
-		exit(98);
-	}
-	fd2 = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 00664);
+	if (re == -1)
+		exit98(av[1]);
+	fd2 = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (fd2 == -1)
+		exit99(av[2]);
 	if (_strlen(buf))
 		wr = write(fd2, buf, _strlen(buf));
-	if (fd2 == -1 || wr == -1)
-	{
-		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", av[2]);
-		exit(99);
-	}
+	if (wr == -1)
+		exit99(av[2]);
 	c1 = close(fd1);
 	c2 = close(fd2);
 	if (c1 == -1)
-		dprintf(STDOUT_FILENO, "Error: Can't close fd%d\n", c1);
-	else if (c2 == -1)
-		dprintf(STDOUT_FILENO, "Error: Can't close fd%d\n", c2);
-	if (c1 == -1 || c2 == -1)
-		exit(100);
+		exit100(c1);
+	if (c2 == -1)
+		exit100(c2);
 	free(buf);
 	return (0);
 }
