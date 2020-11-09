@@ -29,20 +29,30 @@ int _strlen(char *s)
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
-	char buf[1024];
+	char *buf;
 	int buflen;
 	ssize_t writeR, readR;
 
 	if (filename == NULL)
 		return (0);
+	if (letters == 0)
+		return (0);
 	fd = open(filename, O_RDONLY);
+	buf = malloc(sizeof(char) * letters);
 	readR = read(fd, buf, letters);
 	if (readR == -1)
+	{
+		free(buf);
 		return (0);
+	}
 	buflen = _strlen(buf);
 	writeR = write(STDOUT_FILENO, buf, buflen);
 	if (writeR == -1)
+	{
+		free(buf);
 		return (0);
+	}
+	free(buf);
 	close(fd);
 	return (writeR);
 }
