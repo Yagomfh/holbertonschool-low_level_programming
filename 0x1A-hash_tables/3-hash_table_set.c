@@ -41,7 +41,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	index = key_index((unsigned char *)key, ht->size);
-	printf("Index: %ld\n", index);
 
 	new_node = add_node(&(ht->array[index]), key, value);
 	if (new_node == NULL)
