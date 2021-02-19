@@ -10,12 +10,12 @@ def island_perimeter(grid):
             count = 0
             if grid[y][x] == 1:
                 if y > 0:
-                    count += grid[i - 1][j]
+                    count += grid[y - 1][x]
                 if y < (len(grid) - 1):
-                    count += grid[i + 1][j]
+                    count += grid[y + 1][x]
                 if x > 0:
-                    count += grid[i][j - 1]
+                    count += grid[y][x - 1]
                 if x < (len(grid[0]) - 1):
-                    count += grid[i][j + 1]
+                    count += grid[y][x + 1]
                 island_beaches += 4 - count
     return island_beaches
