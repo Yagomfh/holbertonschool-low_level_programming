@@ -52,7 +52,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 		list = jump_n;
 	}
 	printf("%s [%lu] and [%lu]\n", msg, list->index, jump(list, list->index));
-	while (list->next)
+	while (list)
 	{
 		printf("Value checked at index [%lu] = [%d]\n", list->index, list->n);
 		if (list->n == value)
