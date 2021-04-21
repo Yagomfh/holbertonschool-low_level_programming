@@ -14,7 +14,7 @@ int interpolationSearch(int arr[], int lo, int hi, int x, size_t size)
 {
 	size_t pos = lo + (((double)(hi - lo) / (arr[hi] - arr[lo]))
 			* (x - arr[lo]));
-	if (!array)
+	if (!arr)
 		return (-1);
 	if (pos > size)
 		printf("Value checked array[%lu] is out of range\n", pos);
